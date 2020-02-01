@@ -49,4 +49,13 @@
     - userRouter.test.js
 - authentication folder // reference guided projects for set up.
 
+------------TESTING-----------------
+
+What to test: 
+    - all endpoints
+        - make sure they work properly
+        - make sure they fail
+    - helpers
+    - dadta being returned
+
 ------------AUTHORIZATION-------------
