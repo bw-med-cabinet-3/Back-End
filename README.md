@@ -12,14 +12,13 @@
 
 ### Endpoint usage
 
-`/api/users/register`
-register users with the following object model:
+`/api/users/register` register users with the following object model:
 
 ```javascript
 {
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: ''
+    first_name: 'john',
+    last_name: 'doe',
+    email: 'johndoe@domain.com',
+    password: 'keepITsecret123'
 }
 ```
