@@ -22,3 +22,12 @@
     password: 'keepITsecret123'
 }
 ```
+
+`/api/users/login` login users with the following object model:
+
+```javascript
+{
+    email: 'johndoe@domain.com',
+    password: 'keepITsecret123'
+}
+```
