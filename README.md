@@ -2,7 +2,7 @@
 
 ## Endpoint
 
-URL: [https://med-cabinet-web25.herokuapp.com/](https://med-cabinet-web25.herokuapp.com/)
+[https://med-cabinet-web25.herokuapp.com](https://med-cabinet-web25.herokuapp.com/)
 
 | Method | URL                 | Description                                             |
 | ------ | ------------------- | ------------------------------------------------------- |
