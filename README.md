@@ -12,7 +12,7 @@
 
 ### Endpoint usage
 
-`/api/users/register` register users with the following object model:
+`/api/users/register` - register users with the following object model:
 
 ```javascript
 {
@@ -23,7 +23,7 @@
 }
 ```
 
-`/api/users/login` login users with the following object model:
+`/api/users/login` - login users with the following object model:
 
 ```javascript
 {
