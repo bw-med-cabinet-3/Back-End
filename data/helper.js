@@ -3,7 +3,8 @@ const db = require('./db');
 module.exports = {
     insertUser,
     getUsers,
-    findUser
+    findUser,
+    insertStrain
 }
 
 function insertUser(user) {
@@ -19,4 +20,9 @@ function findUser(email) {
     return db('Users')
         .where('email', email)
         .first();
+}
+
+function insertStrain(strain) {
+    return db('Strains')
+        .insert(strain);
 }

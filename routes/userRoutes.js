@@ -26,7 +26,8 @@ router.post('/login', (req, res) => {
 
                 res.status(200).json({
                     message: `Welcome ${user.first_name}`,
-                    token
+                    token,
+                    user
                 })
             } else {
                 res.status(401).json({message: 'Incorrect email or password'})
