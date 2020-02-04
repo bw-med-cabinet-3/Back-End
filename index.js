@@ -9,7 +9,6 @@ server.use(express.json());
 server.use(cors());
 
 server.use('/api/users', userRoutes);
-server.use('/api/strains', )
 
 server.get('/seed', (req, res) => {
     seedDB.getData()
