@@ -3,8 +3,11 @@ const db = require('./db');
 module.exports = {
     insertUser,
     getUsers,
-    findUser,
-    insertStrain
+    findUserByEmail,
+    findUserByID,
+    updateUser,
+    getStrains,
+    findStrain
 }
 
 function insertUser(user) {
@@ -16,13 +19,30 @@ function getUsers() {
     return db('Users');
 }
 
-function findUser(email) {
+function findUserByEmail(email) {
     return db('Users')
         .where('email', email)
         .first();
 }
 
-function insertStrain(strain) {
+function findUserByID(id) {
+    return db('Users')
+        .where('user_id', id)
+        .first();
+}
+
+function updateUser(id, updateUser) {
+    return db('Users')
+        .where('user_id', id)
+        .update(updateUser)
+}
+
+function getStrains() {
+    return db('Strains');
+}
+
+function findStrain(id) {
     return db('Strains')
-        .insert(strain);
+        .where('strain_id', id)
+        .first();
 }
