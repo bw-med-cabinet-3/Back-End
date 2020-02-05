@@ -7,7 +7,10 @@ module.exports = {
     findUserByID,
     updateUser,
     getStrains,
-    findStrain
+    findStrain,
+    saveStrain,
+    getSavedStrains,
+    removeSavedStrain
 }
 
 function insertUser(user) {
@@ -45,4 +48,26 @@ function findStrain(id) {
     return db('Strains')
         .where('strain_id', id)
         .first();
+}
+
+function saveStrain(userID, strainID) {
+    return db('Saved_Strains')
+        .insert({
+            user: userID,
+            strain: strainID
+        });
+}
+
+function getSavedStrains(userID) {
+    return db.select('strain_id', 'strain_name', 'strain_type', 'strain_rating', 'strain_description', 'strain_effects', 'strain_flavors')
+        .from('Strains')
+        .join('Saved_Strains', 'Strains.strain_id', 'Saved_Strains.strain')
+        .where('user', userID);
+}
+
+function removeSavedStrain(userID, strainID) {
+    return db('Saved_Strains')
+        .where('user', userID)
+        .where('strain', strainID)
+        .del()
 }

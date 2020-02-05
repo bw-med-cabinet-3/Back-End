@@ -60,6 +60,50 @@ router.put('/:id/email', restricted, (req, res) => {
     }
 });
 
+router.post('/:id/strains', restricted, (req, res) => {
+    const id = req.params.id;
+
+    if(req.body.strainID) {
+        db.findStrain(req.body.strainID)
+            .then(() => {
+                db.saveStrain(id, req.body.strainID)
+                    .then(() => res.sendStatus(201))
+                    .catch(() => res.sendStatus(500));
+            })
+            .catch(() => res.sendStatus(404))
+    } else {
+        res.status(400).json({message: 'please provide strain id'})
+    }
+})
+
+router.get('/:id/strains', restricted, (req, res) => {
+    const id = req.params.id;
+
+    db.getUsers(id)
+        .then(() => {
+            db.getSavedStrains(id)
+                .then(strains => res.send(strains))
+                .catch(() => res.sendStatus(500));
+        })
+        .catch(() => res.sendStatus(404));
+})
+
+router.delete('/:id/strains', restricted, (req, res) => {
+    const id = req.params.id;
+
+    db.getUsers(id)
+        .then(() => {
+            if(req.body.strainID) {
+                db.removeSavedStrain(id, req.body.strainID)
+                    .then(() => res.sendStatus(204))
+                    .catch(() => res.sendStatus(500));
+            } else {
+                res.status(400).json({message: 'please provide strain id'})
+            }
+        })
+        .catch(() => res.sendStatus(404));
+})
+
 function generateToken(user) {
     const payload = {
         subject: user.user_id,

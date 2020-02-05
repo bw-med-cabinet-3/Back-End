@@ -48,19 +48,19 @@ exports.up = function(knex) {
 //         .notNullable()
 //         .unique();
 // })
-// .createTable('Saved_Strains', tbl => {
-//     tbl.increments('saved_strain_id');
-//     tbl.integer('user')
-//         .unsigned()
-//         .notNullable()
-//         .references('user_id')
-//         .inTable('Users');
-//     tbl.integer('strain')
-//         .unsigned()
-//         .notNullable()
-//         .references('strain_id')
-//         .inTable('Strains');
-// })
+.createTable('Saved_Strains', tbl => {
+    tbl.increments('saved_strain_id');
+    tbl.integer('user')
+        .unsigned()
+        .notNullable()
+        .references('user_id')
+        .inTable('Users');
+    tbl.integer('strain')
+        .unsigned()
+        .notNullable()
+        .references('strain_id')
+        .inTable('Strains');
+})
 // .createTable('Strain_Types', tbl => {
 //     tbl.increments('strain_type_id');
 //     tbl.integer('strain')
