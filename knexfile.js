@@ -22,10 +22,10 @@ module.exports = {
       }
     }
   },
-  seedData: {
+  testing: {
     client: 'sqlite3',
     connection: { 
-      filename: './data/cannabis.db3' 
+      filename: ':memory:' 
     },
     useNullAsDefault: true,
     migrations: {
@@ -33,7 +33,7 @@ module.exports = {
       tableName: 'dbmigrations',
     },
     seeds: { 
-      directory: './data/seeds' 
+      directory: './data/testing' 
     },
     pool: {
       afterCreate: (conn, done) => {

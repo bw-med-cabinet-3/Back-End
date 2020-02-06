@@ -53,7 +53,8 @@ router.put('/:id/email', restricted, (req, res) => {
                     email: req.body.email
                 }
                 db.updateUser(id, updateUser)
-                    .then(() => res.sendStatus(204));
+                    .then(() => res.sendStatus(204))
+                    .catch(() => res.sendStatus(500));
             })
     } else {
         res.status(400).json({message: 'please provide an email to update with'});
