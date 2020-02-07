@@ -89,7 +89,7 @@ router.get('/:id/strains', restricted, (req, res) => {
         .catch(() => res.sendStatus(404));
 })
 
-router.delete('/:id/strains', restricted, (req, res) => {
+router.delete('/:id/strains', (req, res) => {
     const id = req.params.id;
 
     db.getUsers(id)
